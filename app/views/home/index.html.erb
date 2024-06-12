@@ -1,0 +1,10 @@
+<h1>Welcome to Shodan App</h1>
+<% if user_signed_in? %>
+  <p>Hello, <%= current_user.email %>!</p>
+  <%= form_with url: destroy_user_session_path, method: :delete do %>
+    <%= submit_tag "Logout" %>
+  <% end %>
+<% else %>
+  <%= link_to 'Login', new_user_session_path %>
+  <%= link_to 'Sign Up', new_user_registration_path %>
+<% end %>

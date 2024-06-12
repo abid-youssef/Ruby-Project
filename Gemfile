@@ -2,6 +2,12 @@ source "https://rubygems.org"
 
 ruby "3.3.2"
 
+# webpacker is a tool to manage JavaScript, CSS, and images for Rails
+gem 'webpacker', '~> 5.0'
+
+# devise is an auth solution for rails
+gem "devise"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
@@ -64,4 +70,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  gem 'turbolinks', '~> 5'
+  gem 'rails-ujs'
+
 end
