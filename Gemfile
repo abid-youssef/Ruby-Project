@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.3.2"
 
+# shodanz is the shodan gem for the shodan api
+gem 'shodanz'
+
 # webpacker is a tool to manage JavaScript, CSS, and images for Rails
 gem 'webpacker', '~> 5.0'
 
