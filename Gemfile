@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.3.2"
 
+# bootstrap is the bootstrap gem for the bootstrap css framework
+gem 'bootstrap'
+
 # shodanz is the shodan gem for the shodan api
 gem 'shodanz'
 

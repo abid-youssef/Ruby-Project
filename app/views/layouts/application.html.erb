@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shodan</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Shodan App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  
+</head>
+<body>
+  <div class="navbar_wrapper">
+    <nav class="navigationWrapper">
+      <div class="logoWrapper">
+        <img
+          src="https://www.pwnandpatch.com/wp-content/uploads/2021/03/logo-1.png"
+          height="50"
+          alt="Pwn & Patch Logo"
+          loading="lazy"/>
+      </div>
+      <ul class="navigation">
+        <li class="parent">
+      <%= link_to 'Home', root_path, class: 'link' %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="parent">
+            <%= link_to 'Dashboard', authenticated_root_path, class: 'link' %>
+          </li>
+      </li>
 
-  <body>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+        <% else %>
+          <li class="parent">
+            <%= link_to 'Login', new_user_session_path, class: 'link' %>
+          </li>
+          <li class="parent">
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'link' %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="CenterYieldPage">
+    <main>
+      <%= yield %>
+    </main>
+  </div>
+
+  <footer class="text-center py-2" >
+    <div class="d-flex align-items-center justify-content-center">
+      <p class="d-inline-block ml-2 mb-0">Pwn&Patch</p>
+      <img
+        src="https://www.pwnandpatch.com/wp-content/uploads/2021/03/logo-1.png"
+        height="30"
+        alt="Pwn & Patch Logo"
+        class="ml-2"
+      >
+    </div>
+  </footer>
+</body>
+
 </html>

@@ -1,10 +1,17 @@
-<h1>Welcome to Shodan App</h1>
-<% if user_signed_in? %>
-  <p>Hello, <%= current_user.email %>!</p>
-  <%= form_with url: destroy_user_session_path, method: :delete do %>
-    <%= submit_tag "Logout" %>
+<div class="welcome-container">
+  <h1 class="welcome-header">Welcome to Shodan App</h1>
+  <p class="description-text">
+    This is a simple Ruby on Rails web application that utilizes the Shodan API to fetch the open ports on a given IP Address. It provides an easy-to-use interface for security professionals and enthusiasts to explore the services exposed on various devices and networks.
+  </p>
+
+  <% if user_signed_in? %>
+    <%= form_with url: destroy_user_session_path, method: :delete, class: "logout-form" do %>
+      <%= submit_tag "Logout", class: "logout-button" %>
+    <% end %>
   <% end %>
-<% else %>
-  <%= link_to 'Login', new_user_session_path %>
-  <%= link_to 'Sign Up', new_user_registration_path %>
-<% end %>
+  <img
+      src="https://www.shodan.io/static/img/logo-6abcc86b.png"
+      height="20"
+      alt="Shodan Logo"
+      loading="lazy">
+</div>

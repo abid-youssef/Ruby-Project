@@ -23,7 +23,7 @@ class DashboardController < ApplicationController
       client.host(ip)
     
     rescue StandardError => e
-      { 'error' => "Invalid input or API error" }
+      { 'error' => 'There was an error processing your request. Please try again later or change the address.' }
     end
 
   end

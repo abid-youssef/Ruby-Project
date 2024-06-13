@@ -1,32 +1,32 @@
-<h1>Dashboard</h1>
-<p>You are logged in!</p>
+<div class="dashboard-container">
+  <h1 class="dashboard-header">Dashboard</h1>
+  <p class="welcome-message">You are logged in!</p>
 
-<%= form_with url: dashboard_port_search_path, method: :post do %>
-  <div class="field">
-    <%= label_tag :ip, "Enter IP Address:" %>
-    <%= text_field_tag :ip %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Search Shodan" %>
-  </div>
-<% end %>
-
-<% if @results %>
-  <h2>Results for <%= @ip %></h2>
-  <% if @results["error"] %>
-    <p><%= @results["error"] %></p>
-  <% else %>
-    <ul>
-      <% @results["data"].each do |result| %>
-        <li>
-          <strong>Port:</strong> <%= result["port"] %> <br>
-          <strong>Service:</strong> <%= result["transport"] %>
-        </li>
-      <% end %>
-    </ul>
+  <%= form_with url: dashboard_port_search_path, method: :post, class: "search-form" do %>
+    <div class="field">
+      <%= label_tag :ip, "Enter IP Address:", class: "label" %>
+      <%= text_field_tag :ip, nil, class: "input-field" %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Search Shodan", class: "search-button" %>
+    </div>
   <% end %>
-<% end %>
 
-<%= form_with url: destroy_user_session_path, method: :delete do %>
-  <%= submit_tag "Logout" %>
-<% end %>
+  <% if @results %>
+    <h2 class="results-header">Results for <%= @ip %></h2>
+    <% if @results["error"] %>
+      <p class="error-message"><%= @results["error"] %></p>
+    <% else %>
+      <ul class="results-list">
+        <% @results["data"].each do |result| %>
+          <li class="result-item">
+            <strong>Port:</strong> <%= result["port"] %> <br>
+            <strong>Service:</strong> <%= result["transport"] %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+
+
+</div>
